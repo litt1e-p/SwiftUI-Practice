@@ -36,6 +36,40 @@ struct LandmarkDetail: View {
 }
 ```
 
+## 2. Animations
 
+### 2.1 add animation
+
+```swift
+Image(systemName: "chevron.right.circle")
+      .imageScale(.large)
+      .rotationEffect(.degrees(showDetail ? 90 : 0))
+      .scaleEffect(showDetail ? 1.5 : 1)
+      .padding()
+      .animation(.spring())
+```
+
+```swift
+Button(action: {
+//  withAnimation(.easeInOut(duration: 4)) {
+    withAnimation {
+       self.showDetail.toggle()
+    }
+}) {
+// ...
+}
+```
+
+### 2.2  disable an animation
+
+```swift
+Image(systemName: "chevron.right.circle")
+      .imageScale(.large)
+      .rotationEffect(.degrees(showDetail ? 90 : 0))
+      .animation(nil) // turn off rotation animation only
+      .scaleEffect(showDetail ? 1.5 : 1)
+      .padding()
+      .animation(.spring())
+```
 
 
